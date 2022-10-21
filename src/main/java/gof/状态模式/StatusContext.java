@@ -2,23 +2,17 @@ package gof.状态模式;
 
 /**
  * @author Yet
- * @date 2022/09/11 22:23
+ * @date 2022/10/21 21:16
  **/
 public class StatusContext {
-    private Status status;
-    public static Status RUNNING = new RunningStatus();
-    public static Status STOP = new StopStatus();
+    VideoStatus videoStatus;
 
-    public void setStatus(Status status) {
-        this.status = status;
-        this.status.SetContext(this);
+    public void setVideoStatus(VideoStatus videoStatus) {
+        this.videoStatus = videoStatus;
+        this.videoStatus.setStatusContext(this);
     }
 
-    public void running() {
-        status.running();
+    public VideoStatus getVideoStatus() {
+        return videoStatus;
     }
-    public void stop() {
-        status.stop();
-    }
-
 }

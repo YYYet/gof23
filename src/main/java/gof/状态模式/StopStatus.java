@@ -2,16 +2,16 @@ package gof.状态模式;
 
 /**
  * @author Yet
- * @date 2022/09/11 22:26
+ * @date 2022/10/21 21:19
  **/
-public class StopStatus extends Status{
+public class StopStatus extends VideoStatus{
     @Override
-    void running() {
-        super.context.setStatus(StatusContext.RUNNING);
+    void play() {
+        super.statusContext.setVideoStatus(new PlayStatus());
     }
 
     @Override
     void stop() {
-        System.out.println("已经停止 无法继续stop");
+        System.out.println("停止状态不允许再次停止");
     }
 }

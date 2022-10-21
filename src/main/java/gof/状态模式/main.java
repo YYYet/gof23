@@ -7,13 +7,13 @@ package gof.状态模式;
 public class main {
     public static void main(String[] args) {
         StatusContext statusContext = new StatusContext();
+        statusContext.setVideoStatus(new PlayStatus());
+        System.out.println(statusContext.getVideoStatus().getClass().getSimpleName());
 
-        statusContext.setStatus(new RunningStatus());
-        statusContext.running();
-        statusContext.running();
-        statusContext.stop();
-        statusContext.stop();
+        statusContext.getVideoStatus().play();
+        System.out.println(statusContext.getVideoStatus().getClass().getSimpleName());
 
-
+        statusContext.getVideoStatus().stop();
+        System.out.println(statusContext.getVideoStatus().getClass().getSimpleName());
     }
 }
